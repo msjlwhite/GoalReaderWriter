@@ -31,6 +31,8 @@ public class Goals{
     //class variables??
     Scanner scanner = new Scanner(System.in);
     int opt;
+    String goalType;
+    String goal;
 
 
     public void goal() throws IOException{
@@ -78,22 +80,34 @@ public class Goals{
 
     public void createGoal() throws IOException {
 
-//        File file = new File("gTest.txt"); // creates a file to save the goals to
-
+        // variable declaration
         FileWriter writer = new FileWriter("gTest.txt");   // creates a FileWriter Object to create a new file to write to
         BufferedWriter buffer = new BufferedWriter(writer); // writes text to a file
 
-        System.out.println("Create a goal? No? Then thank you, next!");
 
-        buffer.write("Success -- Goal written! \n");
-        buffer.write("Goal to gets this to work ... ");
+//        System.out.println("Create a goal? No? Then thank you, next!");
+//
+//        buffer.write("Success -- Goal written! \n");
+//        buffer.write("Goal to gets this to work ... ");
 
+//        buffer.close();
+
+//        System.out.println("Create a goal? You did it?!!");
+
+        System.out.print("Is this a long-term or short-term goal?");
+        goalType = scanner.nextLine();
+
+//        buffer.write(goalType);
+
+        System.out.println(goalType + ": Please enter in your goal below:");
+        goal = scanner.nextLine();
+
+        buffer.write(goalType);
+        buffer.write(goal);
         buffer.close();
 
-        System.out.println("Create a goal? No? Then thank you, next! You did it?!!");
 
-        System.out.println("Is this a long-term or short-term goal?");
-        System.out.println("Please enter ");
+        System.out.println("Goal Created Successfully. Please check file now.");
 
         // creates the file
 //        file.createNewFile();
