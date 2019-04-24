@@ -1,0 +1,9 @@
+Goal Created: Wed Apr 24 16:19:56 CDT 2019
+Is this a <Short> or <Long> -term goal? short
+Please enter your goal: test this out
+Goal Created: Wed Apr 24 16:19:56 CDT 2019
+Is this a <Short> or <Long> -term goal? short
+Please enter your goal: get this working
+Goal Created: Wed Apr 24 16:19:56 CDT 2019
+Is this a <Short> or <Long> -term goal? short
+Please enter your goal: done!

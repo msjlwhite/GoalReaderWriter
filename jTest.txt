@@ -1,0 +1,6 @@
+Goal Created: Wed Apr 24 15:06:02 CDT 2019
+Is this a <Short> or <Long> -term goal? short-term
+Please enter your goal: to get this program finished and working
+Goal Created: Wed Apr 24 15:40:15 CDT 2019
+Is this a <Short> or <Long> -term goal? short
+Please enter your goal: to get this file to update ...
