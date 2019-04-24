@@ -1,0 +1,5 @@
+Goal Created: Wed Apr 24 17:02:09 CDT 2019Is this a <Short> or <Long> -term goal? short
+Please enter your goal: test file name personalization
+Goal Created: Wed Apr 24 17:02:09 CDT 2019
+Is this a <Short> or <Long> -term goal? short
+Please enter your goal: hope this works!

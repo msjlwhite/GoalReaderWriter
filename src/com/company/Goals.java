@@ -23,39 +23,33 @@ BufferedWriter
 package com.company;
 
 //import the following classes to help run the program
-import javafx.scene.input.KeyCode;
-
-import java.awt.event.KeyEvent;
 import java.util.Date;
 import java.util.Scanner;
 import java.io.*;
 
-import static javafx.scene.input.KeyCode.ENTER;
-import static javafx.scene.input.KeyCode.getKeyCode;
-
 public class Goals{
 
     // Object & variable declaration
+    Date date = new Date();
     Scanner scanner = new Scanner(System.in);               //
-//    int opt;                                              //
     String opt;                                             //
     String goalType;                                        //
     String goal;                                            //
-    Date date = new Date();
-//    String test;
-//    String test2;
-//    String test3;
-
-
+    String name;
 
     public void goal() throws IOException{
         // add greeting
-        System.out.println("Welcome to the Goal-O-Matic 3000 -- the World Reknown tool for viewing, creating and printing personal/" +
+        System.out.println("Welcome to the Goal-O-Matic 3000 -- the World Renown tool for viewing, creating and printing personal/" +
                 "professional goals! ");
         System.out.println("");
 
+        System.out.print("Please enter your name: ");
+        name = scanner.nextLine().toString();
+
+        // add some code to find name file . . .
+
         // add menu
-        System.out.println("What would you like to do? Please choose from the following options: ");
+        System.out.println(name + ", what would you like to do? Please choose from the following options: ");
         System.out.println("1 - Create A Goal");
         System.out.println("2 - Update A Goal");
         System.out.println("3 - View/Print Past Goals");
@@ -63,57 +57,44 @@ public class Goals{
         System.out.println("");
 
         System.out.print("Please enter your choice here: ");
-//        opt = scanner.nextInt();
-        opt = scanner.nextLine(); //-- will work will scanner.nextLine() in createGoal()
+        opt = scanner.nextLine();
 
-//        do {
             // include a switch
             switch (Integer.parseInt(opt)) {
-//        switch (opt){
-
                 case 1:
-                    createGoals();
+                    createGoals(name);
                     break;
                 case 2:
-                    updateGoals();
+                    updateGoals(name);
                     break;
                 case 3:
-                    viewGoals();
+                    viewGoals(name);
                     break;
                 case 0:
                 default:
-                    System.out.println("thank you. goodbye!");
+                    System.out.println(name + ", thank you. goodbye!");
                     break;
 
             } // end of switch
 
-//        }// end of while loop
-
-//        while(Integer.parseInt(opt)0);
-
 //        // add loop to allow user to continue adding or printing goals
-////        while (opt != 0){
-////            System.out.println("");
-////            goal();
-////        }// end of while
+//        while (Integer.parseInt(opt) != 0){
+//            System.out.println("");
+//            goal();
+//        }// end of while
 
     }// end of goal() Method
 
-    public void createGoals() throws IOException {
+    public void createGoals(String a) throws IOException {
 
         // Object & variable declaration
-        FileWriter writer = new FileWriter("jTest3.txt");   // creates a FileWriter Object to create a new file to write to
-        BufferedWriter buffer = new BufferedWriter(writer);            // writes text to a file
-
-
-
-//        test = "this is a test ...";
-//        System.out.print("Enter a message: ");
-//        test2 = scanner.nextLine();
+        FileWriter writer = new FileWriter(name +".txt");   // creates a FileWriter Object to create a new file to write to
+        BufferedWriter buffer = new BufferedWriter(writer);         // writes text to a file
 
         /**
          *
          */
+
         System.out.print("Is this a <Short> or <Long> -term goal? ");
         goalType = scanner.nextLine();
 
@@ -121,14 +102,17 @@ public class Goals{
         goal = scanner.nextLine();
 
         buffer.write("Goal Created: " + date);
-        buffer.newLine();
+        buffer.write("");
+//        buffer.newLine();
 
         buffer.write("Is this a <Short> or <Long> -term goal? ");
         buffer.write(goalType);
+        buffer.write("");
         buffer.newLine();
 
         buffer.write("Please enter your goal: ");
         buffer.write(goal);
+        buffer.write("");
         buffer.newLine();
 
         buffer.flush();
@@ -138,14 +122,14 @@ public class Goals{
         opt = scanner.nextLine().toUpperCase();
 
         while (!opt.toString().equals("N")){
-            addMoreGoals();
+            addMoreGoals(name);
         }
 
     }// end of createGoal() Method
 
-    public void addMoreGoals() throws IOException{
+    public void addMoreGoals(String a) throws IOException{
 
-        BufferedWriter buffer = new BufferedWriter(new FileWriter("jTest3.txt",true));
+        BufferedWriter buffer = new BufferedWriter(new FileWriter(name +".txt",true));
 
         System.out.print("Is this a <Short> or <Long> -term goal? ");
         goalType = scanner.nextLine();
@@ -171,14 +155,14 @@ public class Goals{
         opt = scanner.nextLine().toUpperCase();
 
         while (!opt.toString().equals("N")){
-            addMoreGoals();
+            addMoreGoals(name);
         }
 
     }// end of addMoreGoals()
 
-    public void updateGoals() throws IOException {
+    public void updateGoals(String a) throws IOException {
 //        FileWriter writer = new FileWriter("jTest.txt");   // creates a FileWriter Object to create a new file to write to
-        BufferedWriter buffer = new BufferedWriter(new FileWriter("jTest2.txt",true));
+        BufferedWriter buffer = new BufferedWriter(new FileWriter(name +".txt",true));
 
         System.out.print("Is this a <Short> or <Long> -term goal? ");
         goalType = scanner.nextLine();
@@ -204,10 +188,12 @@ public class Goals{
 
     }
 
-    public void viewGoals() throws IOException {
-
-        BufferedReader reader = new BufferedReader(new FileReader("jTest3.txt"));
+    public void viewGoals(String a) throws IOException {
+        
+        BufferedReader reader = new BufferedReader(new FileReader(name +".txt"));
         String text;
+
+        // allow to view past goals
         while ((text = reader.readLine()) != null) {
             System.out.println(text);
         }
@@ -215,12 +201,10 @@ public class Goals{
         System.out.println("");
         System.out.println("No goals here, just us crickets!");
 
-        // allow to view past goals
+        
         // view goal file or give goal file location for future access/viewing
 
     }// end of goal() Method
-
-
 
 
 }// end of Goals {} Class
