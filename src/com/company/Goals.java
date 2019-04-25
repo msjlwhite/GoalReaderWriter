@@ -41,6 +41,7 @@ public class Goals{
     String goal;                                            //
     String name;                                            //
     int count = 0;
+    int loop = 0;
     String goalStatus;
 
     public void goal() throws IOException{
@@ -71,6 +72,7 @@ public class Goals{
 
             System.out.print("Please enter your choice here: ");
             opt = scanner.nextLine();
+            System.out.println("");
 
             // include a switch
             switch (Integer.parseInt(opt)) {
@@ -89,6 +91,9 @@ public class Goals{
                     break;
 
             } // end of switch
+
+            loop++;
+
         } while (Integer.parseInt(opt) != 0);
 
 //        // add loop to allow user to continue adding or printing goals
@@ -112,13 +117,26 @@ public class Goals{
         count++;
 //        System.out.println("Count = " + count);
         System.out.print("Is this a <Short> or <Long> -term goal? ");
-        goalType = scanner.nextLine();
+        goalType = scanner.nextLine().toUpperCase();
+
+        //while loop to TRY and stop bad input
+        while (!(goalType.equals("SHORT") && !(goalType.equals("LONG")))) {
+
+            System.out.println("Invalid Response. Please enter 'Short' or 'Long' for goal type.");
+            System.out.print("Is this a <Short> or <Long> -term goal? ");
+            goalType = scanner.nextLine().toUpperCase();
+
+        }
 
         System.out.println("Please enter your goal below.");
         goal = scanner.nextLine();
-
         goalStatus = "Ongoing ...";
 
+//        if (loop >= 1){
+//            addMoreGoals(name);
+//        }
+
+        //Prints the information that user entered into a text file
         buffer.write("Goal Created: " + formatter.format(date));
 //        buffer.write("Goal Created: " + java.time.LocalDate.now() + " " + java.time.LocalTime.now());
         buffer.newLine();
@@ -140,9 +158,9 @@ public class Goals{
         buffer.close();
 
         System.out.println("Would you like to add another goal? Please enter 'Y' for yes or 'N' for No. Y/N");
-        opt = scanner.nextLine().toUpperCase();
+        contd = scanner.nextLine().toUpperCase();
 
-        while (!opt.toString().equals("N")){
+        while (!contd.toString().equals("N")){
             addMoreGoals(name);
         }
 
@@ -155,23 +173,33 @@ public class Goals{
         count++;
 //        System.out.println("Count = " + count);
         System.out.print("Is this a <Short> or <Long> -term goal? ");
-        goalType = scanner.nextLine();
+        goalType = scanner.nextLine().toUpperCase();
+
+        //while loop to TRY and stop bad input
+        while (!(goalType.equals("SHORT") && !(goalType.equals("LONG")))) {
+
+            System.out.println("Invalid Response. Please enter 'Short' or 'Long' for goal type.");
+            System.out.print("Is this a <Short> or <Long> -term goal? ");
+            goalType = scanner.nextLine().toUpperCase();
+
+        }
 
         System.out.println("Please enter your goal below.");
         goal = scanner.nextLine();
 
+        //Prints the information that user entered into a text file
         buffer.write("Goal Created: " + formatter.format(date));
-//        buffer.write("Goal Created: " + date);
         buffer.newLine();
 
         buffer.write("Goal Type: ");
         buffer.write(goalType);
         buffer.newLine();
 
+        goalStatus = "Ongoing ...";
+
         buffer.write("Goal Status: ");
         buffer.write(goalStatus);
         buffer.newLine();
-
 
         buffer.write(count + "). Goal: ");
         buffer.write(goal);
@@ -182,9 +210,9 @@ public class Goals{
         buffer.close();
 
         System.out.println("Would you like to add another goal? Please enter 'Y' for yes or 'N' for No. Y/N");
-        opt = scanner.nextLine().toUpperCase();
+        contd = scanner.nextLine().toUpperCase();
 
-        while (!opt.toString().equals("N")){
+        while (!contd.toString().equals("N")){
             addMoreGoals(name);
         }
 
