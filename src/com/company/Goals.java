@@ -64,8 +64,8 @@ public class Goals{
         do {
 
             System.out.println(name + ", what would you like to do? Please choose from the following options: ");
-            System.out.println("1 - Create A Goal");
-            System.out.println("2 - Update A Goal");
+            System.out.println("1 - Create A New Goal List");
+            System.out.println("2 - Update or Add to Existing Goals");
             System.out.println("3 - View/Print Past Goals");
             System.out.println("0 - Save & Exit");
             System.out.println("");
@@ -120,7 +120,7 @@ public class Goals{
         goalType = scanner.nextLine().toUpperCase();
 
         //while loop to TRY and stop bad input
-        while (!(goalType.equals("SHORT") && !(goalType.equals("LONG")))) {
+        while (!(goalType.equals("SHORT") && (!(goalType.equals("LONG"))))) {
 
             System.out.println("Invalid Response. Please enter 'Short' or 'Long' for goal type.");
             System.out.print("Is this a <Short> or <Long> -term goal? ");
@@ -176,7 +176,7 @@ public class Goals{
         goalType = scanner.nextLine().toUpperCase();
 
         //while loop to TRY and stop bad input
-        while (!(goalType.equals("SHORT") && !(goalType.equals("LONG")))) {
+        while ((!goalType.equals("SHORT") ||  (!goalType.equals("LONG")))) {
 
             System.out.println("Invalid Response. Please enter 'Short' or 'Long' for goal type.");
             System.out.print("Is this a <Short> or <Long> -term goal? ");
@@ -251,6 +251,7 @@ public class Goals{
         buffer.close();
 
         System.out.println("No Additional goals to update yet?");
+        System.out.println("");
 
     }
 
@@ -266,6 +267,7 @@ public class Goals{
 
         System.out.println("");
         System.out.println("No goals here, just us crickets!");
+        System.out.println("");
 
         
         // view goal file or give goal file location for future access/viewing

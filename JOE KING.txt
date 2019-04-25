@@ -1,0 +1,19 @@
+Goal Created: 04/25/2019 06:08:18
+Goal Type: short
+1). Goal: testing new date updates
+
+Goal Created: 04/25/2019 06:08:18
+Goal Type: short
+2). Goal: how does it look?
+
+Goal Created: 04/25/2019 06:08:18
+Goal Type: short
+3). Goal: looking any better?
+
+Goal Created: 04/25/2019 06:08:18
+Goal Type: short
+4). Goal: maybe?
+
+Goal Created: Thu Apr 25 11:12:09 CDT 2019
+Is this a <Short> or <Long> -term goal?short
+Please enter your goal: adding new goal

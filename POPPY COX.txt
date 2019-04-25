@@ -1,0 +1,5 @@
+Goal Created: 04/25/2019 11:38:47
+Goal Type: SHORT
+Goal Status: Ongoing ...
+1). Goal: testing while loop
+

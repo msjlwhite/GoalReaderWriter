@@ -1,0 +1,20 @@
+Goal Created: Thu Apr 25 05:23:39 CDT 2019
+Goal Type:short
+
+Goal: test goal counter
+
+Goal Created: Thu Apr 25 05:23:39 CDT 2019
+Goal Type:short
+
+Goal: counter went up to, two, good
+
+Goal Created: Thu Apr 25 05:23:39 CDT 2019
+Goal Type:short
+
+Goal: counter went up again
+
+Goal Created: Thu Apr 25 05:23:39 CDT 2019
+Goal Type:short
+
+Goal: Woot Woot it appears that the counter is working ...
+
