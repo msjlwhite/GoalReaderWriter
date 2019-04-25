@@ -23,6 +23,7 @@ BufferedWriter
 package com.company;
 
 //import the following classes to help run the program
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 import java.io.*;
@@ -31,11 +32,16 @@ public class Goals{
 
     // Object & variable declaration
     Date date = new Date();
+    SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss"); // display date and time in the following format
     Scanner scanner = new Scanner(System.in);               //
     String opt;                                             //
+    String contd;
+    String updt;
     String goalType;                                        //
     String goal;                                            //
-    String name;
+    String name;                                            //
+    int count = 0;
+    String goalStatus;
 
     public void goal() throws IOException{
         // add greeting
@@ -44,20 +50,27 @@ public class Goals{
         System.out.println("");
 
         System.out.print("Please enter your name: ");
-        name = scanner.nextLine().toString();
+        name = scanner.nextLine().toUpperCase();
 
         // add some code to find name file . . .
 
-        // add menu
-        System.out.println(name + ", what would you like to do? Please choose from the following options: ");
-        System.out.println("1 - Create A Goal");
-        System.out.println("2 - Update A Goal");
-        System.out.println("3 - View/Print Past Goals");
-        System.out.println("0 - Save & Exit");
-        System.out.println("");
+        // display date and time
 
-        System.out.print("Please enter your choice here: ");
-        opt = scanner.nextLine();
+        // add menu
+//        System.out.println(java.time.LocalDate.now() + " " + java.time.LocalTime.now());
+
+        // do ... while loop
+        do {
+
+            System.out.println(name + ", what would you like to do? Please choose from the following options: ");
+            System.out.println("1 - Create A Goal");
+            System.out.println("2 - Update A Goal");
+            System.out.println("3 - View/Print Past Goals");
+            System.out.println("0 - Save & Exit");
+            System.out.println("");
+
+            System.out.print("Please enter your choice here: ");
+            opt = scanner.nextLine();
 
             // include a switch
             switch (Integer.parseInt(opt)) {
@@ -76,6 +89,7 @@ public class Goals{
                     break;
 
             } // end of switch
+        } while (Integer.parseInt(opt) != 0);
 
 //        // add loop to allow user to continue adding or printing goals
 //        while (Integer.parseInt(opt) != 0){
@@ -95,24 +109,31 @@ public class Goals{
          *
          */
 
+        count++;
+//        System.out.println("Count = " + count);
         System.out.print("Is this a <Short> or <Long> -term goal? ");
         goalType = scanner.nextLine();
 
         System.out.println("Please enter your goal below.");
         goal = scanner.nextLine();
 
-        buffer.write("Goal Created: " + date);
-        buffer.write("");
-//        buffer.newLine();
+        goalStatus = "Ongoing ...";
 
-        buffer.write("Is this a <Short> or <Long> -term goal? ");
-        buffer.write(goalType);
-        buffer.write("");
+        buffer.write("Goal Created: " + formatter.format(date));
+//        buffer.write("Goal Created: " + java.time.LocalDate.now() + " " + java.time.LocalTime.now());
         buffer.newLine();
 
-        buffer.write("Please enter your goal: ");
+        buffer.write("Goal Type: ");
+        buffer.write(goalType);
+        buffer.newLine();
+
+        buffer.write("Goal Status: ");
+        buffer.write(goalStatus);
+        buffer.newLine();
+
+        buffer.write(count + "). Goal: ");
         buffer.write(goal);
-        buffer.write("");
+        buffer.newLine();
         buffer.newLine();
 
         buffer.flush();
@@ -131,21 +152,30 @@ public class Goals{
 
         BufferedWriter buffer = new BufferedWriter(new FileWriter(name +".txt",true));
 
+        count++;
+//        System.out.println("Count = " + count);
         System.out.print("Is this a <Short> or <Long> -term goal? ");
         goalType = scanner.nextLine();
 
         System.out.println("Please enter your goal below.");
         goal = scanner.nextLine();
 
-        buffer.write("Goal Created: " + date);
+        buffer.write("Goal Created: " + formatter.format(date));
+//        buffer.write("Goal Created: " + date);
         buffer.newLine();
 
-        buffer.write("Is this a <Short> or <Long> -term goal? ");
+        buffer.write("Goal Type: ");
         buffer.write(goalType);
         buffer.newLine();
 
-        buffer.write("Please enter your goal: ");
+        buffer.write("Goal Status: ");
+        buffer.write(goalStatus);
+        buffer.newLine();
+
+
+        buffer.write(count + "). Goal: ");
         buffer.write(goal);
+        buffer.newLine();
         buffer.newLine();
 
         buffer.flush();
@@ -163,6 +193,14 @@ public class Goals{
     public void updateGoals(String a) throws IOException {
 //        FileWriter writer = new FileWriter("jTest.txt");   // creates a FileWriter Object to create a new file to write to
         BufferedWriter buffer = new BufferedWriter(new FileWriter(name +".txt",true));
+
+        //ask user whether they would like to update
+            // find goal
+            // options will be
+                // update -- add to goal or change goal status
+                // DELETE/REMOVE Goal ... dun dun DUH!!
+        System.out.println(name + ", please chose how you would like to update your goals?");
+
 
         System.out.print("Is this a <Short> or <Long> -term goal? ");
         goalType = scanner.nextLine();
